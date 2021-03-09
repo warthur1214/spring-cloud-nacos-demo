@@ -2,8 +2,6 @@ package com.warthur.nacos.demo.interfaces.facade;
 
 import com.warthur.nacos.demo.application.service.TestService;
 import org.apache.dubbo.config.annotation.DubboReference;
-import org.apache.dubbo.config.annotation.Reference;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,11 +21,8 @@ public class HomeController {
     @Value("${age:0}")
     private Integer age;
 
-    @Autowired
-    private TestService testService;
-
     @DubboReference
-    private TestService testServiceDubbo;
+    private TestService testService;
 
     @GetMapping("/")
     public String home() {
@@ -45,15 +40,9 @@ public class HomeController {
         return age;
     }
 
-    @GetMapping("/config")
-    public String config() {
-
-        return testService.getConfig();
-    }
-
     @GetMapping("/dubbo/config")
     public String dubboConfig() {
 
-        return testServiceDubbo.getConfig();
+        return testService.getConfig();
     }
 }
