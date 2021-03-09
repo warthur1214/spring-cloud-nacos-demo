@@ -1,6 +1,7 @@
 package com.warthur.nacos.demo.interfaces.facade;
 
 import com.warthur.nacos.demo.application.service.TestService;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,7 +26,7 @@ public class HomeController {
     @Autowired
     private TestService testService;
 
-    @Reference
+    @DubboReference
     private TestService testServiceDubbo;
 
     @GetMapping("/")
