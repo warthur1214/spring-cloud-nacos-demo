@@ -19,7 +19,7 @@
     <properties>
         <java.version>1.8</java.version>
         <start-class>com.warthur.nacos.demo.MainApplication</start-class>
-        <alibaba.version>2.2.5.RELEASE</alibaba.version>
+        <spring.cloud.alibaba.version>2.2.5.RELEASE</spring.cloud.alibaba.version>
         <nacos.version>1.4.1</nacos.version>
         <docker.image.prefix>10.10.137.118:9082/warthur</docker.image.prefix>
         <docker.maven.version>1.2.2</docker.maven.version>
@@ -34,7 +34,7 @@
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-            <version>${alibaba.version}</version>
+            <version>${spring.cloud.alibaba.version}</version>
             <exclusions>
                 <exclusion>
                     <artifactId>guava</artifactId>
@@ -53,13 +53,13 @@
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-            <version>${alibaba.version}</version>
+            <version>${spring.cloud.alibaba.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-dubbo</artifactId>
-            <version>${alibaba.version}</version>
+            <version>${spring.cloud.alibaba.version}</version>
             <exclusions>
                 <exclusion>
                     <artifactId>spring-context-support</artifactId>
