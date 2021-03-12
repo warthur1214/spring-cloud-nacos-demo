@@ -1,5 +1,8 @@
 package com.warthur.nacos.demo.config;
 
+import com.warthur.nacos.demo.config.filter.SpringApp;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -9,4 +12,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class BeanConfig {
 
+    @Value("${spring.application.name}")
+    private String appName;
+
+    @Bean
+    public SpringApp springApp() {
+        return new SpringApp().setAppName(appName);
+    }
 }
