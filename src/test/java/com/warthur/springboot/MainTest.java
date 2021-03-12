@@ -1,5 +1,6 @@
 package com.warthur.springboot;
 
+import com.warthur.nacos.demo.application.service.AppAuthService;
 import org.junit.Test;
 
 import java.time.LocalDateTime;
@@ -14,6 +15,6 @@ public class MainTest {
     @Test
     public void testDate() {
 
-        System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern("")));
+        System.out.println(AppAuthService.class.getName());
     }
 }
