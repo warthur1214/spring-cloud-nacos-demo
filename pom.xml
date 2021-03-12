@@ -28,6 +28,7 @@
         <mysql.version>6.0.5</mysql.version>
         <mybatis.version>2.1.4</mybatis.version>
         <mybatis.plus.version>3.4.1</mybatis.plus.version>
+        <satoken.version>1.14.0</satoken.version>
     </properties>
 
     <dependencies>
@@ -146,6 +147,22 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>19.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-spring-boot-starter</artifactId>
+            <version>${satoken.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-dao-redis</artifactId>
+            <version>${satoken.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-spring-aop</artifactId>
+            <version>${satoken.version}</version>
         </dependency>
     </dependencies>
 
