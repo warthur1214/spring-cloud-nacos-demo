@@ -1,6 +1,7 @@
 package com.warthur.nacos.demo.config.filter;
 
 import cn.dev33.satoken.stp.StpUtil;
+import com.warthur.nacos.demo.config.satoken.SpringApp;
 import org.apache.dubbo.common.extension.Activate;
 import org.apache.dubbo.rpc.*;
 

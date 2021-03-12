@@ -1,6 +1,6 @@
 package com.warthur.nacos.demo.config;
 
-import com.warthur.nacos.demo.config.filter.SpringApp;
+import com.warthur.nacos.demo.config.satoken.SpringApp;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

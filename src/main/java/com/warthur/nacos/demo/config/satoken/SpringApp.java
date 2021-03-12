@@ -1,4 +1,4 @@
-package com.warthur.nacos.demo.config.filter;
+package com.warthur.nacos.demo.config.satoken;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
