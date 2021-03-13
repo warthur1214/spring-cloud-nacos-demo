@@ -8,8 +8,8 @@ spring:
     nacos:
       username: warthur
       password: yongqiang
-#      discovery:
-#        server-addr: nacos.warthur.com:80
+      discovery:
+        server-addr: nacos.warthur.com:80
       config:
         server-addr: ${spring.cloud.nacos.discovery.server-addr}
         file-extension: yaml
