@@ -55,6 +55,6 @@ public abstract class AbstractAspect {
         Long ts = Long.parseLong(timeParam);
         Long nts = System.currentTimeMillis()/1000;
 
-        return Math.abs(nts - ts) <= 300;
+        return Math.abs(nts - ts) <= 3000;
     }
 }

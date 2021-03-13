@@ -4,7 +4,6 @@ import com.warthur.nacos.demo.config.redis.StringRedisCache;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -77,10 +76,13 @@ public class RequestParamAspect extends AbstractAspect {
             throw new RuntimeException("签名非法");
         }
 
-        stringRedisCache.set("nonce:" + nonce, nonce);
-        Object result =  joinPoint.proceed();
-
-        stringRedisCache.delete("nonce" + nonce);
+        Object result;
+        try {
+            stringRedisCache.set("nonce:" + nonce, nonce);
+            result =  joinPoint.proceed();
+        } finally {
+            stringRedisCache.delete("nonce:" + nonce);
+        }
 
         return result;
     }

@@ -16,7 +16,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     @ResponseStatus
     public String systemExceptionGet(Exception e) {
-        log.error("系统异常: {}",e.getMessage());
+        log.error("系统异常", e);
 
         return e.getMessage();
     }

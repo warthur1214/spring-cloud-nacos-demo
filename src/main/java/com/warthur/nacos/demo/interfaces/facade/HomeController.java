@@ -1,5 +1,6 @@
 package com.warthur.nacos.demo.interfaces.facade;
 
+import cn.dev33.satoken.annotation.SaCheckLogin;
 import com.warthur.nacos.demo.application.service.TestService;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.beans.factory.annotation.Value;
@@ -41,6 +42,7 @@ public class HomeController {
     }
 
     @GetMapping("/dubbo/config")
+    @SaCheckLogin
     public String dubboConfig() {
 
         return testService.getConfig();
