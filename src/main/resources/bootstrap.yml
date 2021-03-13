@@ -25,8 +25,3 @@ spring:
             dataId: logback.yaml
           - refresh: true
             dataId: sa-token.yaml
-dubbo:
-  consumer:
-    filter:
-  provider:
-    filter:

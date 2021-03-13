@@ -2,3 +2,5 @@
 .idea
 logs
 target/*
+test/java/*
+test/resources/*
