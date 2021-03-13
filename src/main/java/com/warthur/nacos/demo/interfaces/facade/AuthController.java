@@ -3,6 +3,7 @@ package com.warthur.nacos.demo.interfaces.facade;
 import cn.dev33.satoken.annotation.SaCheckLogin;
 import cn.dev33.satoken.stp.SaTokenInfo;
 import cn.dev33.satoken.stp.StpUtil;
+import com.warthur.nacos.demo.application.annotation.SignAuthExclude;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/auth")
+@SignAuthExclude
 public class AuthController {
 
     @GetMapping("/login")

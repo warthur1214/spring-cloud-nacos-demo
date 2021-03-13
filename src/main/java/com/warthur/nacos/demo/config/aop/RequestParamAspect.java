@@ -9,6 +9,7 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
@@ -26,6 +27,9 @@ public class RequestParamAspect extends AbstractAspect {
 
     @Autowired
     private StringRedisCache stringRedisCache;
+
+    @Value("${api.timestamp.interval: 300}")
+    private Integer interval;
 
     @Pointcut("execution(@(org.springframework.web.bind.annotation.RequestMapping " +
             "|| org.springframework.web.bind.annotation.GetMapping " +
@@ -85,6 +89,18 @@ public class RequestParamAspect extends AbstractAspect {
         }
 
         return result;
+    }
+
+    /**
+     * 判断timestamp参数与当前时间戳误差是否超过3s
+     * @param timeParam timestamp
+     * @return boolean
+     */
+    protected boolean validTimestamp(String timeParam) {
+        Long ts = Long.parseLong(timeParam);
+        Long nts = System.currentTimeMillis()/1000;
+
+        return Math.abs(nts - ts) <= interval;
     }
 }
 

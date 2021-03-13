@@ -1,18 +1,13 @@
 package com.warthur.nacos.demo.config.aop;
 
-import com.warthur.nacos.demo.domain.utils.RequestParamUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.catalina.connector.Request;
 import org.apache.catalina.connector.RequestFacade;
-import org.apache.commons.codec.digest.DigestUtils;
-import org.aspectj.lang.JoinPoint;
 import org.springframework.util.Assert;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletRequestWrapper;
 import java.lang.reflect.Field;
 
 /**
@@ -44,17 +39,5 @@ public abstract class AbstractAspect {
             return null;
         }
         return attributes.getRequest();
-    }
-
-    /**
-     * 判断timestamp参数与当前时间戳误差是否超过3s
-     * @param timeParam timestamp
-     * @return boolean
-     */
-    protected boolean validTimestamp(String timeParam) {
-        Long ts = Long.parseLong(timeParam);
-        Long nts = System.currentTimeMillis()/1000;
-
-        return Math.abs(nts - ts) <= 3000;
     }
 }
