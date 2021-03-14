@@ -1,4 +1,4 @@
-package com.warthur.nacos.demo.config.redis;
+package com.warthur.nacos.demo.infrastructure.config.redis;
 
 import java.util.List;
 import java.util.Map;

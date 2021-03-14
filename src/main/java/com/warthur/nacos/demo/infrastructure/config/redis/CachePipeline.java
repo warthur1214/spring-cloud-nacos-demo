@@ -1,4 +1,4 @@
-package com.warthur.nacos.demo.config.redis;
+package com.warthur.nacos.demo.infrastructure.config.redis;
 
 import org.springframework.data.redis.connection.RedisConnection;
 

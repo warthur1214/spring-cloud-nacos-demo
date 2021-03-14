@@ -1,6 +1,6 @@
-package com.warthur.nacos.demo.config.aop;
+package com.warthur.nacos.demo.infrastructure.config.aop;
 
-import com.warthur.nacos.demo.config.redis.StringRedisCache;
+import com.warthur.nacos.demo.infrastructure.config.redis.StringRedisCache;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -42,14 +42,14 @@ public class RequestParamAspect extends AbstractAspect {
     /**
      * 排除被@SignAuthExclude、@GlobalAuthExclude标记过的方法
      */
-    @Pointcut("!execution(@(com.warthur.nacos.demo.application.annotation.SignAuthExclude )" +
+    @Pointcut("!execution(@(com.warthur.nacos.demo.infrastructure.config.annotation.SignAuthExclude )" +
             "public * com.warthur.nacos.demo.interfaces.facade..*(..)) ")
     public void excludeMethod() {}
 
     /**
      * 排除被@SignAuthExclude、@GlobalAuthExclude标记过的类
      */
-    @Pointcut("!within(@(com.warthur.nacos.demo.application.annotation.SignAuthExclude)" +
+    @Pointcut("!within(@(com.warthur.nacos.demo.infrastructure.config.annotation.SignAuthExclude)" +
             " com.warthur.nacos.demo.interfaces.facade.*) ")
     public void excludeClass() {}
 

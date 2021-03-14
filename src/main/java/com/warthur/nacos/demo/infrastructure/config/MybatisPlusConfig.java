@@ -1,4 +1,4 @@
-package com.warthur.nacos.demo.config;
+package com.warthur.nacos.demo.infrastructure.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;

@@ -1,4 +1,4 @@
-package com.warthur.nacos.demo.config.satoken;
+package com.warthur.nacos.demo.infrastructure.config.satoken;
 
 import cn.dev33.satoken.stp.StpInterface;
 import org.springframework.stereotype.Component;

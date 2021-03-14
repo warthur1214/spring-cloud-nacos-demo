@@ -1,2 +1,2 @@
-AuthorizationFilter=com.warthur.nacos.demo.config.filter.AuthorizationFilter
-ConsumerAuthFilter=com.warthur.nacos.demo.config.filter.ConsumerAuthFilter
+AuthorizationFilter=com.warthur.nacos.demo.infrastructure.config.filter.AuthorizationFilter
+ConsumerAuthFilter=com.warthur.nacos.demo.infrastructure.config.filter.ConsumerAuthFilter

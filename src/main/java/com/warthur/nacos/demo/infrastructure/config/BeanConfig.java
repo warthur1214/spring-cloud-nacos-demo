@@ -1,8 +1,8 @@
-package com.warthur.nacos.demo.config;
+package com.warthur.nacos.demo.infrastructure.config;
 
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
-import com.warthur.nacos.demo.config.satoken.SpringApp;
+import com.warthur.nacos.demo.infrastructure.config.satoken.SpringApp;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

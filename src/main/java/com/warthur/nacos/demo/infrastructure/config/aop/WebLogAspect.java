@@ -1,4 +1,4 @@
-package com.warthur.nacos.demo.config.aop;
+package com.warthur.nacos.demo.infrastructure.config.aop;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

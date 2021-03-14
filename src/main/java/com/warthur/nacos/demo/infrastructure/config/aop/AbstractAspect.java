@@ -1,4 +1,4 @@
-package com.warthur.nacos.demo.config.aop;
+package com.warthur.nacos.demo.infrastructure.config.aop;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.catalina.connector.RequestFacade;

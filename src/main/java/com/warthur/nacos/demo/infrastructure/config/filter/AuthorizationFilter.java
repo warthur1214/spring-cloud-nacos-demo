@@ -1,6 +1,5 @@
-package com.warthur.nacos.demo.config.filter;
+package com.warthur.nacos.demo.infrastructure.config.filter;
 
-import cn.dev33.satoken.stp.StpUtil;
 import com.warthur.nacos.demo.domain.utils.StpDubboUtils;
 import lombok.NoArgsConstructor;
 import org.apache.dubbo.common.constants.CommonConstants;

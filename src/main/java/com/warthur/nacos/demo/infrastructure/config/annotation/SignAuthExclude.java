@@ -1,4 +1,4 @@
-package com.warthur.nacos.demo.application.annotation;
+package com.warthur.nacos.demo.infrastructure.config.annotation;
 
 import java.lang.annotation.*;
 
