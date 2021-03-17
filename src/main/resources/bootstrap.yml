@@ -9,7 +9,9 @@ spring:
       username: warthur
       password: yongqiang
       discovery:
-        server-addr: nacos.warthur.com:80
+#        server-addr: nacos.warthur.com:80
+        server-addr: localhost:8848
+        group: DEFAULT_GROUP
       config:
         server-addr: ${spring.cloud.nacos.discovery.server-addr}
         file-extension: yaml
@@ -25,3 +27,4 @@ spring:
             dataId: logback.yaml
           - refresh: true
             dataId: sa-token.yaml
+        group: ${spring.cloud.nacos.discovery.group}
