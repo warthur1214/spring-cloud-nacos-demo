@@ -22,7 +22,7 @@ public class TestJob extends QuartzJobBean {
     @Override
     public void executeInternal(JobExecutionContext context) {
 
-        log.info("定时任务执行，当前时间：{}", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:ii:ss")));
+        log.info("定时任务执行，当前时间：{}", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
 
     }
 }
