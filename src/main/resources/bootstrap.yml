@@ -31,4 +31,6 @@ spring:
             dataId: mybatis.yaml
           - refresh: true
             dataId: sa-token.yaml
+          - refresh: true
+            dataId: quartz.yaml
         group: ${spring.cloud.nacos.discovery.group}
