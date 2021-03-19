@@ -1,15 +1,22 @@
 package com.warthur.nacos.demo.interfaces.facade;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.conditions.query.QueryChainWrapper;
 import com.warthur.nacos.demo.application.task.TestJob;
 import com.warthur.nacos.demo.infrastructure.config.annotation.SignAuthExclude;
 import com.warthur.nacos.demo.infrastructure.dao.JobDAO;
+import com.warthur.nacos.demo.infrastructure.po.JobEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.RandomStringUtils;
 import org.quartz.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Collections;
+import java.util.List;
 
 /**
  * @author warthur
@@ -25,6 +32,15 @@ public class QuartzController {
 
     @Autowired
     private JobDAO jobDAO;
+
+    @GetMapping("/jobs")
+    @SignAuthExclude
+    public List<JobEntity> getJobs() {
+
+        List<JobEntity> jobs = jobDAO.selectBatchIds(Collections.emptyList());
+
+        return jobs;
+    }
 
     @PostMapping("/tasks")
     @SignAuthExclude
