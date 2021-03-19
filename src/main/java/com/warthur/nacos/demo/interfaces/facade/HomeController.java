@@ -42,7 +42,6 @@ public class HomeController {
     }
 
     @GetMapping("/dubbo/config")
-    @SaCheckLogin
     public String dubboConfig() {
 
         return testService.getConfig();

@@ -3,7 +3,6 @@ package com.warthur.nacos.demo.interfaces.facade;
 import com.warthur.nacos.demo.application.task.TestJob;
 import com.warthur.nacos.demo.infrastructure.config.annotation.SignAuthExclude;
 import com.warthur.nacos.demo.infrastructure.dao.JobDAO;
-import com.warthur.nacos.demo.infrastructure.po.JobEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.RandomStringUtils;
 import org.quartz.*;
@@ -34,22 +33,24 @@ public class QuartzController {
         // JobEntity jobEntity = jobDAO.findOne();
 
         //构建job信息
-        JobDetail job = JobBuilder.newJob(TestJob.class)
-                .withIdentity(RandomStringUtils.randomAlphabetic(10), "default")
-                .withDescription("描述")
-                .build();
+        // JobDetail job = JobBuilder.newJob(TestJob.class)
+        //         .withIdentity(RandomStringUtils.randomAlphabetic(10), "default")
+        //         .withDescription("描述")
+        //         .build();
+        //
+        // // 触发时间点
+        // CronScheduleBuilder cronScheduleBuilder = CronScheduleBuilder.cronSchedule("0/5 * * * * ?");
+        // Trigger trigger = TriggerBuilder.newTrigger()
+        //         .withIdentity("trigger-" + RandomStringUtils.randomAlphabetic(10), "default")
+        //         .withDescription("描述")
+        //         .startNow()
+        //         .withSchedule(cronScheduleBuilder)
+        //         .build();
+        //
+        // //交由Scheduler安排触发
+        // scheduler.scheduleJob(job, trigger);
 
-        // 触发时间点
-        CronScheduleBuilder cronScheduleBuilder = CronScheduleBuilder.cronSchedule("0/5 * * * * ?");
-        Trigger trigger = TriggerBuilder.newTrigger()
-                .withIdentity("trigger-" + RandomStringUtils.randomAlphabetic(10), "default")
-                .withDescription("描述")
-                .startNow()
-                .withSchedule(cronScheduleBuilder)
-                .build();
-
-        //交由Scheduler安排触发
-        scheduler.scheduleJob(job, trigger);
+        scheduler.unscheduleJob(new TriggerKey("trigger-TwOeKpPEuR"));
 
         return "success";
     }
