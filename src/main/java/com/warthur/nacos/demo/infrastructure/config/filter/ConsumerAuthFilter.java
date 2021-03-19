@@ -30,8 +30,6 @@ public class ConsumerAuthFilter implements Filter {
     public Result invoke(Invoker<?> invoker, Invocation invocation) throws RpcException {
 
         RpcContext.getContext().setAttachment("appId", springApp.getAppName());
-        StpDubboUtils.setLoginId(springApp.getAppName());
-
         return invoker.invoke(invocation);
     }
 }

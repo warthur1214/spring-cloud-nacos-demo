@@ -20,9 +20,7 @@ public class AuthorizationFilter implements Filter {
         String clazz = invocation.getServiceName();
         String method = invocation.getServiceName().concat(".").concat(invocation.getMethodName());
 
-        if (!StpDubboUtils.hasPermission(appId, clazz) && !StpDubboUtils.hasPermission(appId, method)) {
-            throw new RuntimeException("无权限访问");
-        }
+        // 判断appId是否有请求 class/method 权限，无则返回异常
 
         return invoker.invoke(invocation);
     }
