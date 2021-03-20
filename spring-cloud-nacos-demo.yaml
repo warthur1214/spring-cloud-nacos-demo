@@ -1,0 +1,46 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-cloud-nacos-demo
+  namespace: spring-boot-k8s
+  labels:
+    app: nacos-demo
+  annotations:
+    service.alpha.kubernetes.io/tolerate-unready-endpoints: "true"
+spec:
+  ports:
+    - port: 30080
+      name: server
+      targetPort: 8080
+  selector:
+    app: nacos-demo
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-cloud-nacos-demo
+  namespace: spring-boot-k8s
+  labels:
+    app: nacos-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nacos-demo
+  template:
+    metadata:
+      labels:
+        app: nacos-demo
+    spec:
+      containers:
+        - name: spring-cloud-nacos-demo
+          image: 10.10.137.118:9082/warthur/spring-cloud-nacos-demo:latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: JVM_OPTS
+              value: '-Dspring.cloud.nacos.discovery.server-addr= -Dspring.cloud.nacos.discovery.namespace=dev'
+          ports:
+            - name: nacos-demo
+              containerPort: 8080
+              protocol: TCP
