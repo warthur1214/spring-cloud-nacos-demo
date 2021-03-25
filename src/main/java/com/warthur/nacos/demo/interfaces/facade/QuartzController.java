@@ -66,7 +66,7 @@ public class QuartzController {
         // //交由Scheduler安排触发
         // scheduler.scheduleJob(job, trigger);
 
-        scheduler.unscheduleJob(new TriggerKey("trigger-TwOeKpPEuR"));
+        scheduler.unscheduleJob(new TriggerKey("trigger-KRxoIfxfmX"));
 
         return "success";
     }
