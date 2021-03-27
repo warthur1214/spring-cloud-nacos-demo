@@ -1,7 +1,6 @@
 package com.warthur.nacos.demo.infrastructure.config.filter;
 
 import com.warthur.nacos.demo.infrastructure.config.satoken.SpringApp;
-import com.warthur.nacos.demo.domain.utils.StpDubboUtils;
 import org.apache.dubbo.common.constants.CommonConstants;
 import org.apache.dubbo.common.extension.Activate;
 import org.apache.dubbo.rpc.*;

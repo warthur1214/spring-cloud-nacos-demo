@@ -9,7 +9,6 @@ import com.warthur.nacos.demo.application.service.UserService;
 import com.warthur.nacos.demo.domain.model.aggregates.UserRichInfo;
 import com.warthur.nacos.demo.domain.repository.IUserRepository;
 import com.warthur.nacos.demo.infrastructure.po.UserEntity;
-import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

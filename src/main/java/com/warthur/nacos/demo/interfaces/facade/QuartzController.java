@@ -1,14 +1,12 @@
 package com.warthur.nacos.demo.interfaces.facade;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.conditions.query.QueryChainWrapper;
-import com.warthur.nacos.demo.application.task.TestJob;
 import com.warthur.nacos.demo.infrastructure.config.annotation.SignAuthExclude;
 import com.warthur.nacos.demo.infrastructure.dao.JobDAO;
 import com.warthur.nacos.demo.infrastructure.po.JobEntity;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang.RandomStringUtils;
-import org.quartz.*;
+import org.quartz.Scheduler;
+import org.quartz.SchedulerException;
+import org.quartz.TriggerKey;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
