@@ -33,6 +33,6 @@ public class UserRepository implements IUserRepository {
     @Override
     public UserEntity get(long userId) {
 
-        return null;
+        return userDAO.selectById(userId);
     }
 }

@@ -1,5 +1,7 @@
 package com.warthur.nacos.demo.infrastructure.po;
 
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -9,8 +11,10 @@ import lombok.EqualsAndHashCode;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
+@TableName("t_user")
 public class UserEntity extends BaseEntity {
 
+    @TableId
     private Long userId;
     private String userName;
     private String password;

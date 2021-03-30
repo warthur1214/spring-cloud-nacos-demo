@@ -36,23 +36,23 @@ spring:
         group: ${spring.cloud.nacos.discovery.group}
   shardingsphere:
     datasource:
-      names: master,slave
-      master:
+      names: ds0,ds1
+      ds0:
         type: com.zaxxer.hikari.HikariDataSource
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://139.9.170.157:3306/master_db?useSSL=false&autoReconnect=true&allowMultiQueries=true
+        jdbc-url: jdbc:mysql://139.9.170.157:3306/test?useSSL=false&autoReconnect=true&allowMultiQueries=true&nullNamePatternMatchesAll=true
         username: root
-        password: 1qaz@WSX3edc
-      slave:
+        password: root@huaweiyun140
+      ds1:
         type: com.zaxxer.hikari.HikariDataSource
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://139.9.170.197:3306/master_db?useSSL=false&autoReconnect=true&allowMultiQueries=true
+        jdbc-url: jdbc:mysql://139.9.170.197:3306/test?useSSL=false&autoReconnect=true&allowMultiQueries=true&nullNamePatternMatchesAll=true
         username: root
-        password: 1qaz@WSX3edc
+        password: root@huaweiyun140
     masterslave:
       name: ms
-      master-data-source-name: master
-      slave-data-source-names: slave
+      master-data-source-name: ds0
+      slave-data-source-names: ds1
       load-balance-algorithm-type: round_robin
     props:
       sql.show: true

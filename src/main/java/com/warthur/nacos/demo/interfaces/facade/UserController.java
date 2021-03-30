@@ -30,10 +30,10 @@ public class UserController {
 
     @GetMapping("/users")
     @SaCheckRole(value = {"admin", "user"}, mode = SaMode.OR)
-    @SaCheckPermission("user:list")
-    public List<String> getUsers() {
+    @SaCheckPermission("user:select")
+    public PageInfo<UserEntity> getUsers() {
 
-        return Arrays.asList("user1", "user2");
+        return iUserRepository.getUserByPage();
     }
 
     @GetMapping("/user/{userId}")
@@ -47,9 +47,8 @@ public class UserController {
     @PostMapping("/users")
     @SaCheckRole(value = {"admin", "user"}, mode = SaMode.OR)
     @SaCheckPermission("user:add")
-    public PageInfo<UserEntity> addUserInfo() {
+    public void addUserInfo() {
 
-        return iUserRepository.getUserByPage();
     }
 
     @PutMapping("/users/{userId}")
