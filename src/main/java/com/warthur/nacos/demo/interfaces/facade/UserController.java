@@ -12,9 +12,6 @@ import com.warthur.nacos.demo.infrastructure.po.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
-import java.util.List;
-
 /**
  * @author warthur
  * @date 2020/12/25
