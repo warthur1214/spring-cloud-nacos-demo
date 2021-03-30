@@ -1,6 +1,6 @@
 package com.warthur.nacos.demo.domain.repository;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.github.pagehelper.PageInfo;
 import com.warthur.nacos.demo.infrastructure.po.UserEntity;
 
 /**
@@ -9,7 +9,7 @@ import com.warthur.nacos.demo.infrastructure.po.UserEntity;
  */
 public interface IUserRepository {
 
-    IPage<UserEntity> getUserByPage();
+    PageInfo<UserEntity> getUserByPage();
 
     void save(UserEntity userEntity);
 

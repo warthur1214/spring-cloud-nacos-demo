@@ -4,7 +4,7 @@ import cn.dev33.satoken.annotation.SaCheckPermission;
 import cn.dev33.satoken.annotation.SaCheckRole;
 import cn.dev33.satoken.annotation.SaMode;
 import cn.dev33.satoken.stp.StpUtil;
-import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.github.pagehelper.PageInfo;
 import com.warthur.nacos.demo.application.service.UserService;
 import com.warthur.nacos.demo.domain.model.aggregates.UserRichInfo;
 import com.warthur.nacos.demo.domain.repository.IUserRepository;
@@ -47,7 +47,7 @@ public class UserController {
     @PostMapping("/users")
     @SaCheckRole(value = {"admin", "user"}, mode = SaMode.OR)
     @SaCheckPermission("user:add")
-    public IPage<UserEntity> addUserInfo() {
+    public PageInfo<UserEntity> addUserInfo() {
 
         return iUserRepository.getUserByPage();
     }

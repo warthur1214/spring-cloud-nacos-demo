@@ -19,8 +19,8 @@ spring:
         extension-configs:
           - refresh: true
             dataId: redis.yaml
-          - refresh: true
-            dataId: jdbc.yaml
+#          - refresh: true
+#            dataId: jdbc.yaml
           - refresh: true
             dataId: dubbo.yaml
           - refresh: true
@@ -34,3 +34,25 @@ spring:
           - refresh: true
             dataId: quartz.yaml
         group: ${spring.cloud.nacos.discovery.group}
+  shardingsphere:
+    datasource:
+      names: master,slave
+      master:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://139.9.170.157:3306/master_db?useSSL=false&autoReconnect=true&allowMultiQueries=true
+        username: root
+        password: 1qaz@WSX3edc
+      slave:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://139.9.170.197:3306/master_db?useSSL=false&autoReconnect=true&allowMultiQueries=true
+        username: root
+        password: 1qaz@WSX3edc
+    masterslave:
+      name: ms
+      master-data-source-name: master
+      slave-data-source-names: slave
+      load-balance-algorithm-type: round_robin
+    props:
+      sql.show: true

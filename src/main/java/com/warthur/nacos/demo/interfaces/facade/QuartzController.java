@@ -31,15 +31,6 @@ public class QuartzController {
     @Autowired
     private JobDAO jobDAO;
 
-    @GetMapping("/jobs")
-    @SignAuthExclude
-    public List<JobEntity> getJobs() {
-
-        List<JobEntity> jobs = jobDAO.selectBatchIds(Collections.emptyList());
-
-        return jobs;
-    }
-
     @PostMapping("/tasks")
     @SignAuthExclude
     public String addTasks() throws SchedulerException {

@@ -1,7 +1,7 @@
 package com.warthur.nacos.demo.infrastructure.repository;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.warthur.nacos.demo.domain.repository.IUserRepository;
 import com.warthur.nacos.demo.infrastructure.dao.UserDAO;
 import com.warthur.nacos.demo.infrastructure.po.UserEntity;
@@ -19,21 +19,20 @@ public class UserRepository implements IUserRepository {
     private UserDAO userDAO;
 
     @Override
-    public IPage<UserEntity> getUserByPage() {
-        Page<UserEntity> page = new Page<>(1, 10);
-        return userDAO.selectUsers(page);
+    public PageInfo<UserEntity> getUserByPage() {
+        PageHelper.startPage(1, 10);
+        return new PageInfo<>(userDAO.selectUsers());
     }
 
     @Override
     public void save(UserEntity userEntity) {
 
 
-        userDAO.insert(userEntity);
     }
 
     @Override
     public UserEntity get(long userId) {
 
-        return userDAO.selectById(userId);
+        return null;
     }
 }
