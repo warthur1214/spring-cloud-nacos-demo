@@ -1,7 +1,8 @@
 package com.warthur.nacos.demo;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.cloud.client.SpringCloudApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ComponentScan;
 
 
@@ -9,7 +10,8 @@ import org.springframework.context.annotation.ComponentScan;
  * @author warthur
  * @date 2020/11/27
  */
-@SpringCloudApplication
+@SpringBootApplication
+@EnableDiscoveryClient
 @ComponentScan("io.shardingsphere.transaction.aspect")
 public class MainApplication {
 
