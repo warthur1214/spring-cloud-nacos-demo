@@ -144,6 +144,10 @@
                     <artifactId>jsqlparser</artifactId>
                     <groupId>com.github.jsqlparser</groupId>
                 </exclusion>
+                <exclusion>
+                    <artifactId>mybatis</artifactId>
+                    <groupId>org.mybatis</groupId>
+                </exclusion>
             </exclusions>
         </dependency>
         <dependency>
@@ -161,6 +165,16 @@
             <groupId>io.shardingsphere</groupId>
             <artifactId>sharding-transaction-spring-boot-starter</artifactId>
             <version>3.1.0</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>guava</artifactId>
+                    <groupId>com.google.guava</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>antlr4-runtime</artifactId>
+                    <groupId>org.antlr</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.github.pagehelper</groupId>

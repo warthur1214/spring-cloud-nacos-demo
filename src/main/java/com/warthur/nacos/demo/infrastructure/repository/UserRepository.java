@@ -5,8 +5,11 @@ import com.github.pagehelper.PageInfo;
 import com.warthur.nacos.demo.domain.repository.IUserRepository;
 import com.warthur.nacos.demo.infrastructure.dao.UserDAO;
 import com.warthur.nacos.demo.infrastructure.po.UserEntity;
+import org.apache.shardingsphere.transaction.annotation.ShardingTransactionType;
+import org.apache.shardingsphere.transaction.core.TransactionType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author warthur
@@ -25,6 +28,8 @@ public class UserRepository implements IUserRepository {
     }
 
     @Override
+    @ShardingTransactionType(TransactionType.XA)
+    @Transactional(rollbackFor = Exception.class)
     public void save(UserEntity userEntity) {
 
 
