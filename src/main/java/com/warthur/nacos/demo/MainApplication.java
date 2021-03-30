@@ -12,7 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-@ComponentScan("io.shardingsphere.transaction.aspect")
+@ComponentScan(basePackages = {"com.warthur.nacos", "io.shardingsphere.transaction.aspect"})
 public class MainApplication {
 
     public static void main(String[] args) {
