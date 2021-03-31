@@ -29,7 +29,7 @@ public class QuartzConfig {
     }
 
     /**
-     * QuartzDataSource 注解则是配置Quartz独立数据源的配置
+     * Quartz 的DataSource不再声明成bean使用
      */
     public HikariDataSource getDataSource() {
         HikariDataSource dataSource = new HikariDataSource();
