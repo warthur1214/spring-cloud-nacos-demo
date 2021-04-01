@@ -26,8 +26,6 @@ spring:
           - refresh: true
             dataId: logback.yaml
           - refresh: true
-            dataId: seata.yaml
-          - refresh: true
             dataId: mybatis.yaml
           - refresh: true
             dataId: sa-token.yaml
