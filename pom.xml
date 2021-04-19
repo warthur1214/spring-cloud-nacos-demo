@@ -192,6 +192,11 @@
         </dependency>
         <dependency>
             <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-dao-redis-jackson</artifactId>
+            <version>${satoken.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.dev33</groupId>
             <artifactId>sa-token-spring-aop</artifactId>
             <version>${satoken.version}</version>
         </dependency>
