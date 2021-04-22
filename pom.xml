@@ -27,7 +27,7 @@
 
         <mysql.version>6.0.5</mysql.version>
         <mybatis.version>2.1.4</mybatis.version>
-        <mybatis.plus.version>3.4.1</mybatis.plus.version>
+        <mybatis.plus.version>3.4.2</mybatis.plus.version>
         <satoken.version>1.17.0</satoken.version>
     </properties>
 

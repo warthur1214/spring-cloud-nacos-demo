@@ -1,6 +1,7 @@
 package com.warthur.nacos.demo.infrastructure.repository;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.warthur.nacos.demo.domain.repository.IUserRepository;
 import com.warthur.nacos.demo.infrastructure.dao.UserDAO;
@@ -27,6 +28,9 @@ public class UserRepository implements IUserRepository {
     @Override
     public void save(UserEntity userEntity) {
 
+        Wrappers.<UserEntity>lambdaQuery().eq(UserEntity::getUserId, 1);
+
+        userDAO.selectList(Wrappers.<UserEntity>lambdaQuery().eq(UserEntity::getUserId, 1));
 
         userDAO.insert(userEntity);
     }
