@@ -1,6 +1,5 @@
 package com.warthur.nacos.demo.interfaces.facade;
 
-import cn.dev33.satoken.annotation.SaCheckLogin;
 import cn.dev33.satoken.annotation.SaCheckPermission;
 import cn.dev33.satoken.annotation.SaCheckRole;
 import cn.dev33.satoken.annotation.SaMode;
@@ -38,7 +37,7 @@ public class UserController {
     @SignAuthExclude
     public List<String> getUsers() {
 
-        List<UserEntity> userEntities = userDAO.selectByUserName("warthur");
+        List<UserEntity> userEntities = userDAO.selectByUserName("developer");
 
         return Arrays.asList("user1", "user2");
     }

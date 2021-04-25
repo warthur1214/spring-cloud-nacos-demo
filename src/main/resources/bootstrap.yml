@@ -19,8 +19,8 @@ spring:
         extension-configs:
           - refresh: true
             dataId: redis.yaml
-#          - refresh: true
-#            dataId: jdbc.yaml
+          - refresh: true
+            dataId: jdbc.yaml
           - refresh: true
             dataId: dubbo.yaml
           - refresh: true
@@ -32,20 +32,3 @@ spring:
           - refresh: true
             dataId: quartz.yaml
         group: ${spring.cloud.nacos.discovery.group}
-
-
-  datasource:
-    dynamic:
-      primary: master
-      strict: false
-      datasource:
-        master:
-          driver-class-name: com.mysql.cj.jdbc.Driver
-          jdbc-url: jdbc:mysql://localhost:3306/test?useSSL=false&autoReconnect=true&allowMultiQueries=true&nullNamePatternMatchesAll=true
-          username: root
-          password: 1qaz@WSX3edc
-        quartz:
-          driver-class-name: com.mysql.cj.jdbc.Driver
-          jdbc-url: jdbc:mysql://localhost:3306/quartz?useSSL=false&autoReconnect=true&allowMultiQueries=true&nullNamePatternMatchesAll=true
-          username: root
-          password: 1qaz@WSX3edc

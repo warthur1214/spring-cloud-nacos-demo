@@ -1,7 +1,5 @@
 package com.warthur.nacos.demo.infrastructure.dao;
 
-import com.baomidou.dynamic.datasource.annotation.DS;
-import com.baomidou.dynamic.datasource.annotation.Master;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
