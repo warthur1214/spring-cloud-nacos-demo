@@ -1,11 +1,15 @@
 package com.warthur.nacos.demo.infrastructure.dao;
 
+import com.baomidou.dynamic.datasource.annotation.DS;
+import com.baomidou.dynamic.datasource.annotation.Master;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.warthur.nacos.demo.infrastructure.po.UserEntity;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  * @author warthur
@@ -14,8 +18,12 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface UserDAO extends BaseMapper<UserEntity> {
 
-    @Select("SELECT * FROM t_user WHERE user_name = #{userName}")
-    UserEntity selectByUserName(String userName);
+    /**
+     * 根据name查询user
+     * @param userName name
+     * @return user
+     */
+    List<UserEntity> selectByUserName(String userName);
 
     @Select("SELECT * FROM t_user WHERE user_id IS NOT NULL")
     IPage<UserEntity> selectUsers(Page<UserEntity> page);

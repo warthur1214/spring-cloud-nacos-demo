@@ -1,5 +1,6 @@
 package com.warthur.nacos.demo.interfaces.facade;
 
+import cn.dev33.satoken.annotation.SaCheckLogin;
 import cn.dev33.satoken.annotation.SaCheckPermission;
 import cn.dev33.satoken.annotation.SaCheckRole;
 import cn.dev33.satoken.annotation.SaMode;
@@ -8,6 +9,8 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.warthur.nacos.demo.application.service.UserService;
 import com.warthur.nacos.demo.domain.model.aggregates.UserRichInfo;
 import com.warthur.nacos.demo.domain.repository.IUserRepository;
+import com.warthur.nacos.demo.infrastructure.config.annotation.SignAuthExclude;
+import com.warthur.nacos.demo.infrastructure.dao.UserDAO;
 import com.warthur.nacos.demo.infrastructure.po.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,12 +29,16 @@ public class UserController {
     private UserService userService;
 
     @Autowired
+    private UserDAO userDAO;
+
+    @Autowired
     private IUserRepository iUserRepository;
 
     @GetMapping("/users")
-    @SaCheckRole(value = {"admin", "user"}, mode = SaMode.OR)
-    @SaCheckPermission("user:list")
+    @SignAuthExclude
     public List<String> getUsers() {
+
+        List<UserEntity> userEntities = userDAO.selectByUserName("warthur");
 
         return Arrays.asList("user1", "user2");
     }

@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@TableName("t_user")
+@TableName(value = "t_user", schema = "test")
 public class UserEntity extends BaseEntity {
 
     @TableId
