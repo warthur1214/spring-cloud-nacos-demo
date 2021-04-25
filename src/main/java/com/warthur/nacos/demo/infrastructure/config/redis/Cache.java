@@ -15,7 +15,7 @@ public interface Cache<T> {
 
     Set<String> keys(final String pattern);
 
-    long size(String key);
+    Long size(String key);
 
     boolean setNx(final String key, T value);
 
@@ -23,7 +23,7 @@ public interface Cache<T> {
 
     void expire(final String key, long seconds);
 
-    long getExpire(final String key);
+    Long getExpire(final String key);
 
     void set(final String key, T value);
 
@@ -37,9 +37,9 @@ public interface Cache<T> {
 
     void deletePattern(final String pattern);
 
-    boolean exists(final String key);
+    Boolean exists(final String key);
 
-    long incr(final String key);
+    Long incr(final String key);
 
     T get(final String key);
 

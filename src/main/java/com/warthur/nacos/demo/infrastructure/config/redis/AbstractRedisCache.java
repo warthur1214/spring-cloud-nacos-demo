@@ -1,10 +1,10 @@
 package com.warthur.nacos.demo.infrastructure.config.redis;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.*;
-import org.springframework.util.StringUtils;
 
 import java.util.List;
 import java.util.Set;
@@ -35,7 +35,7 @@ public abstract class AbstractRedisCache<T> implements Cache<T> {
         } catch (Exception e) {
             log.error("批量执行redis命令失败！", e);
         } finally {
-            RedisConnectionUtils.releaseConnection(connection, factory, false);
+            RedisConnectionUtils.releaseConnection(connection, factory);
         }
 
         return result;
@@ -57,9 +57,9 @@ public abstract class AbstractRedisCache<T> implements Cache<T> {
     }
 
     @Override
-    public long size(String key) {
+    public Long size(String key) {
         if (!exists(key)) {
-            return 0;
+            return 0L;
         }
 
         ListOperations<String, T> list = getRedisTemplate().opsForList();
@@ -72,7 +72,7 @@ public abstract class AbstractRedisCache<T> implements Cache<T> {
     }
 
     @Override
-    public long getExpire(String key) {
+    public Long getExpire(String key) {
         return getRedisTemplate().getExpire(key);
     }
 
@@ -88,13 +88,13 @@ public abstract class AbstractRedisCache<T> implements Cache<T> {
     @Override
     public void deletePattern(String pattern) {
         Set<String> keys = getRedisTemplate().keys(pattern);
-        if (keys.size() > 0) {
+        if (keys != null && keys.size() > 0) {
             getRedisTemplate().delete(keys);
         }
     }
 
     @Override
-    public boolean exists(String key) {
+    public Boolean exists(String key) {
         if (StringUtils.isEmpty(key)) {
             return false;
         }
@@ -102,7 +102,7 @@ public abstract class AbstractRedisCache<T> implements Cache<T> {
     }
 
     @Override
-    public long incr(String key) {
+    public Long incr(String key) {
         ValueOperations<String, T> values = getRedisTemplate().opsForValue();
         return values.increment(key, 1);
     }
