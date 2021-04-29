@@ -9,7 +9,6 @@ spring:
       username: warthur
       password: yongqiang
       discovery:
-#        server-addr: nacos.warthur.com:80
         server-addr: localhost:8848
         group: DEFAULT_GROUP
       config:
