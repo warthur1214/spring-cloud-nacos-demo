@@ -22,7 +22,7 @@
         <maven.test.skip>true</maven.test.skip>
 
         <spring.cloud.alibaba.version>2021.1</spring.cloud.alibaba.version>
-        <nacos.version>2.0.0</nacos.version>
+        <nacos.version>2.0.1</nacos.version>
         <docker.image.prefix>10.10.137.118:9082/warthur</docker.image.prefix>
         <docker.maven.version>1.2.2</docker.maven.version>
         <fabric8.maven.plugin.version>4.4.1</fabric8.maven.plugin.version>
