@@ -1,6 +1,7 @@
 package com.warthur.nacos.demo.interfaces.facade;
 
 import com.warthur.nacos.demo.application.service.TestService;
+import com.warthur.nacos.demo.infrastructure.config.annotation.SignAuthExclude;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -41,6 +42,7 @@ public class HomeController {
     }
 
     @GetMapping("/dubbo/config")
+    @SignAuthExclude
     public String dubboConfig() {
 
         return testService.getConfig();
