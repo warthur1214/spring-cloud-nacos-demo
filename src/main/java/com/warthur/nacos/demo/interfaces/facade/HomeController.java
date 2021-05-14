@@ -37,6 +37,7 @@ public class HomeController {
     }
 
     @GetMapping("/age")
+    @SignAuthExclude
     public Integer age() {
         return age;
     }
