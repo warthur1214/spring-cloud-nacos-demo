@@ -31,3 +31,7 @@ spring:
           - refresh: true
             dataId: quartz.yaml
         group: ${spring.cloud.nacos.discovery.group}
+
+feign:
+  sentinel:
+    enabled: true
