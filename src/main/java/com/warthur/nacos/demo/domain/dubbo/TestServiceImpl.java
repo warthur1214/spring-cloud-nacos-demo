@@ -2,12 +2,9 @@ package com.warthur.nacos.demo.domain.dubbo;
 
 import com.warthur.nacos.dubbo.TestService;
 import org.apache.dubbo.config.annotation.DubboService;
-import org.apache.dubbo.rpc.RpcException;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
 
 import java.text.MessageFormat;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author warthur
