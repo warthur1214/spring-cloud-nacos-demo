@@ -1,7 +1,7 @@
 package com.warthur.nacos.demo.interfaces.facade;
 
-import com.warthur.nacos.demo.application.service.TestService;
 import com.warthur.nacos.demo.infrastructure.config.annotation.SignAuthExclude;
+import com.warthur.nacos.dubbo.TestService;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -22,7 +22,7 @@ public class HomeController {
     @Value("${age:0}")
     private Integer age;
 
-    @DubboReference
+    @DubboReference(timeout = 3)
     private TestService testService;
 
     @GetMapping("/")

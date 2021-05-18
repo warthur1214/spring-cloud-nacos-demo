@@ -1,4 +1,4 @@
-package com.warthur.nacos.demo.application.service;
+package com.warthur.nacos.dubbo;
 
 /**
  * @author warthur
